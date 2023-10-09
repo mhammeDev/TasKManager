@@ -1,8 +1,7 @@
 # TasKManager
-This Vue.js application serves as a training ground for improving my skills in this framework, as the best way to learn is through hands-on experience.
+This Java application serves as a training ground for improving my skills in this languagage, as the best way to learn is through hands-on experience.
 
-The goal is to implement all of theses functions :
-
+## The goal is to implement all of theses functions :
 - **To do-list** : Post a to-do list. Each task should have a title, description, due date (optional) and status (to be done, in progress, completed, etc.).
 - **Add tasks** : Users should be abble to add new tasks to the do-list: when they add a task, they can specify the title, description and optionally a due date.
 - **Update the state** : Users should be able mark a task as complete or change its status with a checkbox or similar action
