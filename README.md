@@ -11,4 +11,4 @@ The goal is to implement all of theses functions :
 - **Filter of the tasks** : Users should be able to filter the task with the status (to do, in progress, completed) or with the due date.
 - **Search of a task** : Users should be able to search for a task with a keyword in the title or description
 - **Storage of the data** : The to-do list needed to be saved, to maintain the task between sessions.
-- **Add a user account (optionnal) : Add a login and signup feature to allow users to save their to-do list.
+- **Add a user account (optionnal)** : Add a login and signup feature to allow users to save their to-do list.
