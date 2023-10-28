@@ -9,14 +9,14 @@ public class taskException extends Exception{
 
     public taskException(Task t, int typeError){
         super("");
-        this.typeError = typeError
+        this.typeError = typeError;
         this.t = t;
     }
 
     public String getMessage(){
         String msg = "";
         if(typeError==0){
-            msg = "Impossible de créer la tâche le texte existe déjà"
+            msg = "Impossible de créer la tâche le texte existe déjà";
         }
         return msg;
     }
