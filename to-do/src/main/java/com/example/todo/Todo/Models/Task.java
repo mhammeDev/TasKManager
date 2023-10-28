@@ -37,7 +37,7 @@
         private LocalDate date;
 
         @Column(
-                name = "task_skate",
+                name = "task_state",
                 nullable = false
         )
         @Enumerated(EnumType.STRING)

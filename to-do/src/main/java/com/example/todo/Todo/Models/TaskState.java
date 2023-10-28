@@ -1,7 +1,7 @@
 package com.example.todo.Todo.Models;
 
 public enum TaskState {
-    TODO("To do"),
+    TO_DO("To do"),
     IN_PROGRESS("In progress"),
     COMPLETED("Completed"),
     POSTPONED("Post poned"),

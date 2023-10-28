@@ -26,7 +26,7 @@ public class TaskConfig {
                     "Homework",
                     "Exercize 1 of part 3",
                     LocalDate.now(),
-                    TaskState.TODO,
+                    TaskState.TO_DO,
                     TaskPriority.Weak
             );
             taskRepository.save(t1);
