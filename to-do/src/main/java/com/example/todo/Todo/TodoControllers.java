@@ -4,9 +4,7 @@ import java.util.*;
 
 import com.example.todo.Todo.Models.Task;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping(path = "api/v1/todo")
@@ -19,7 +17,12 @@ public class TodoControllers {
     }
 
     @GetMapping
-    public List<Task> toDo() {
-        return todoService.toDo();
+    public List<Task> getTask() {
+        return todoService.getTask();
+    }
+
+    @PostMapping
+    public void addTask(@RequestBody Task task){
+
     }
 }

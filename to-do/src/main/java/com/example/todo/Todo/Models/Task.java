@@ -1,31 +1,65 @@
     package com.example.todo.Todo.Models;
-    import jakarta.persistence.Entity;
-    import jakarta.persistence.EnumType;
-    import jakarta.persistence.Enumerated;
-    import jakarta.persistence.Id;
+    import jakarta.persistence.*;
     import jakarta.persistence.criteria.CriteriaBuilder;
 
     import java.time.LocalDate;
 
     @Entity
+    @Table
     public class Task{
         @Id
-        private Integer id;
+        @GeneratedValue(strategy = GenerationType.IDENTITY)
+        @Column(
+                name = "id",
+                updatable = false
+        )
+        protected int id;
+
+        @Column(
+                name="title",
+                nullable = false,
+                unique = true
+        )
         private String title;
+
+        @Column(
+                name = "description",
+                nullable = false,
+                columnDefinition = "TEXT"
+
+        )
         private String description;
+
+        @Column(
+                name = "date",
+                nullable = false
+        )
         private LocalDate date;
+
+        @Column(
+                name = "task_skate",
+                nullable = false
+        )
         @Enumerated(EnumType.STRING)
         private TaskState taskState;
+
+        @Column(
+                name = "task_priority",
+                nullable = false
+        )
         @Enumerated(EnumType.STRING)
         private TaskPriority taskPriority;
 
-        public Task(Integer id,String title, String description, LocalDate date,TaskState taskState, TaskPriority taskPriority){
-            this.id = id;
+        public Task(String title, String description, LocalDate date,TaskState taskState, TaskPriority taskPriority){
             this.title = title;
             this.description = description;
             this.date = date;
             this.taskState = taskState;
             this.taskPriority = taskPriority;
+        }
+
+        public Task() {
+
         }
 
         public String getTitle(){
