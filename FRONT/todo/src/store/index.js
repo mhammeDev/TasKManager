@@ -19,27 +19,31 @@ export default new Vuex.Store({
   actions: {
     async getTasks({commit}){
       let response = await TaskServices.getTasks();
-      if(response.error === 0){
+      console.log("aze")
+      console.log(response.error)
+      if(response.status === 200){
+        console.log("1")
         commit('updateTask', response.data);
       }else{
-        console.log(response.data)
+        console.log("12")
+        console.log(response.data + "aaaa")
       }
     },
     async deleteTasks({commit},id){
       let response = await TaskServices.removeTask(id)
-      if(response.error === 0){
+      if(response.status === 200){
         commit('updateTask', response.data);
       }else console.log(response.data);
     },
     async addTask({commit},taskData){
       let response= await TaskServices.addTask(taskData);
-      if(response.error === 0){
+      if(response.status === 200){
         commit('updateTask',response.data);
       }else console.log(response.data);
     },
     async updateTask({commit},id,taskData){
       let response = await TaskServices.updateTask(id,taskData);
-      if(response.error === 0){
+      if(response.status === 200){
         commit('updateTask',response.data);
       }else console.log(response.data);
     }

@@ -5,7 +5,8 @@ const TASK_API = 'http://localhost:8080/api/v1/todo';
 async function getTasks() {
     try {
         const response = await axios.get(TASK_API);
-        return response.data;
+        console.log(response.data)
+        return response;
     } catch (error) {
         console.error('Error getting tasks:', error);
         throw error; // Vous pouvez gérer l'erreur ici ou laisser le composant Vue.js le gérer.
@@ -24,7 +25,7 @@ async function removeTask(id) {
 async function addTask(taskData) {
     try {
         const response = await axios.post(TASK_API, taskData);
-        return response.data;
+        return response.data.task;
     } catch (error) {
         console.error('Error adding task:', error);
         throw error;
