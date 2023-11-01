@@ -1,15 +1,17 @@
 <template>
-  <div class="task">
-    <div class="card mb-3 border-" :class="getPriorityClass(task.taskPriority)">
-      <div class="card-header">{{ task.title }}</div>
+  <div class="task" style="margin: 4%">
+    <div :class="concat('card mb-3 border-2 bg-',getPriorityClass(task.taskPriority))">
+      <div :class="concat('card-header bg-light border-',getPriorityClass(task.taskPriority))" style="font-weight: bold;color: black">{{ task.title }}</div>
       <div class="card-body text-" :class="getPriorityClass(task.taskPriority)">
-        <h5 class="card-title">Task Description</h5>
-        <p class="card-text">{{ task.description }}</p>
+        <h5 class="card-title" style="color: white">Task Description</h5>
+        <div class="card-text" style="color: white">
+        <p>{{ task.description }}</p>
         <p>Due Date: {{ task.date }}</p>
         <p>Task State: {{ task.taskState }}</p>
         <p>Task Priority: {{ task.taskPriority }}</p>
-        <!--          <button class="btn btn-danger" @click="deleteTask(task.id)">Delete Task</button>-->
-        <!--          <button class="btn btn-warning" @onclick="">Update task</button>-->
+                  <button class="btn btn-light btn-outline-danger" @click="deleteTasks(task.id)">Delete Task</button>
+                  <button class="btn btn-light btn-outline-warning" @onclick="deleteTask(task.id)" style="margin-left: 1%">Update task</button>
+        </div>
       </div>
     </div>
   </div>
@@ -23,9 +25,6 @@ export default {
   props: {
     task: Object
   },
-  data: () => {
-
-  },
   computed: {
     ...mapState(['tasks'])
   },
@@ -33,7 +32,7 @@ export default {
     ...mapActions(['deleteTasks']),
     getPriorityClass(priority) {
       switch (priority) {
-        case 'Weak':
+        case "Weak":
           return 'success';
         case 'Average':
           return 'warning';
@@ -42,7 +41,9 @@ export default {
         default:
           return '';
       }
-    },
+    },concat(text1,text2){
+      return text1.concat(text2);
+    }
   }
 
 }

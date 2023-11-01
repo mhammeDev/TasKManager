@@ -7,22 +7,21 @@ import TaskServices from "@/services/TaskServices";
 
 export default new Vuex.Store({
   state: {
-    tasks: []
+    // tasks: [ { "title": "Homework", "description": "Exercize 1 of part 3", "date": "2023-10-31", "taskState": "TO_DO", "taskPriority": "Weak" }, { "title": "Cleaning room", "description": "My room", "date": "2023-10-31", "taskState": "TO_DO", "taskPriority": "Weak" }, { "title": "a room", "description": "My room", "date": "2023-10-31", "taskState": "TO_DO", "taskPriority": "Weak" }
+    tasks : []
   },
   getters: {
   },
   mutations: {
     updateTask(state, task){
-      state.tasks = task;
+      console.log("ici")
+     state.tasks = task;
     }
   },
   actions: {
     async getTasks({commit}){
       let response = await TaskServices.getTasks();
-      console.log("aze")
-      console.log(response.error)
       if(response.status === 200){
-        console.log("1")
         commit('updateTask', response.data);
       }else{
         console.log("12")
@@ -32,7 +31,8 @@ export default new Vuex.Store({
     async deleteTasks({commit},id){
       let response = await TaskServices.removeTask(id)
       if(response.status === 200){
-        commit('updateTask', response.data);
+        const updatedTasks = this.state.tasks.filter(task => task.id !== id);
+        commit('updateTask', updatedTasks);
       }else console.log(response.data);
     },
     async addTask({commit},taskData){

@@ -32,13 +32,13 @@ public class TodoControllers {
     }
 
     @DeleteMapping(path = "{taskId}")
-    public void removeTask(@PathVariable("taskId") int taskId){
+    public void removeTask(@PathVariable("taskId") Long taskId){
         todoService.removeTask(taskId);
     }
 
     @PutMapping(path = "{taskId}")
     public void updateTask(
-            @PathVariable("taskId") int taskId,
+            @PathVariable("taskId") Long taskId,
             @RequestParam(required = false) String title,
             @RequestParam(required = false) String description,
             @RequestParam(required = false) LocalDate date,

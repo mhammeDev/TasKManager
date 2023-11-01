@@ -15,7 +15,9 @@ async function getTasks() {
 
 async function removeTask(id) {
     try {
-        await axios.delete(`${TASK_API}/${id}`);
+        console.log("iyuyuiyuy")
+        const response =await axios.delete(`${TASK_API}/${id}`);
+        return response;
     } catch (error) {
         console.error('Error deleting task:', error);
         throw error;
@@ -25,7 +27,7 @@ async function removeTask(id) {
 async function addTask(taskData) {
     try {
         const response = await axios.post(TASK_API, taskData);
-        return response.data.task;
+        return response;
     } catch (error) {
         console.error('Error adding task:', error);
         throw error;
@@ -35,7 +37,7 @@ async function addTask(taskData) {
 async function updateTask(id, taskData) {
     try {
         const response = await axios.put(`${TASK_API}/${id}`, taskData);
-        return response.data;
+        return response;
     } catch (error) {
         console.error('Error updating task:', error);
         throw error;
