@@ -1,5 +1,5 @@
 <template>
-  <div class="task" style="margin: 4%">
+  <div class="task" style="margin: 3%;">
     <div :class="concat('card mb-3 border-2 bg-',getPriorityClass(task.taskPriority))">
       <div :class="concat('card-header bg-light border-',getPriorityClass(task.taskPriority))" style="font-weight: bold;color: black">{{ task.title }}</div>
       <div class="card-body text-" :class="getPriorityClass(task.taskPriority)">
@@ -10,7 +10,7 @@
         <p>Task State: {{ task.taskState }}</p>
         <p>Task Priority: {{ task.taskPriority }}</p>
                   <button class="btn btn-light btn-outline-danger" @click="deleteTasks(task.id)">Delete Task</button>
-                  <button class="btn btn-light btn-outline-warning" @onclick="deleteTask(task.id)" style="margin-left: 1%">Update task</button>
+                  <button class="btn btn-light btn-outline-warning" @onclick="deleteTask(task.id)" style="margin: 1%">Update task</button>
         </div>
       </div>
     </div>

@@ -2,6 +2,7 @@ import Vue from 'vue'
 import VueRouter from 'vue-router'
 import HomeView from '../views/HomeView.vue'
 import TaskGroup from "@/components/TaskGroup.vue";
+import LeftPart from "@/components/LeftPart.vue";
 
 Vue.use(VueRouter)
 
@@ -16,6 +17,11 @@ const routes = [
     name: 'todoGroup',
     component: TaskGroup
 
+  },
+  {
+    path: '/leftpart',
+    name:'leftpart',
+    component: LeftPart
   },
   {
     path: '/about',

@@ -1,10 +1,10 @@
 <template>
-  <div class="task-group" style="display: flex; align-items:flex-start ;gap: 1%" >
+  <div class="task-group" >
 
     <div class="card mb-3 border-2 border-success">
       <div class="card-header bg-success">To do</div>
-      <div v-if="tasks.length>0">
-        <div class="card-text" style="width: 240px;height: auto"  v-for="(t, index) in tasks" :key="index">
+      <div v-if="tasks.length>0" class="card-text" style="min-height: 50px">
+        <div class="card-text"  v-for="(t, index) in tasks" :key="index">
           <div v-if="t.taskState == 'TO_DO'">
             <TaskItem :task="t"/>
           </div>
@@ -17,8 +17,8 @@
 
     <div class="card mb-3 border-2 border-success">
       <div class="card-header bg-success">In Progress</div>
-      <div v-if="tasks.length>0">
-        <div class="card-text" style="width: 240px;" v-for="(t, index) in tasks" :key="index">
+      <div v-if="tasks.length>0" class="card-text" style="min-height: 50px">
+        <div class="card-text" v-for="(t, index) in tasks" :key="index">
           <div v-if="t.taskState == 'IN_PROGRESS'">
             <TaskItem :task="t"/>
           </div>
@@ -31,8 +31,8 @@
 
     <div class="card mb-3 border-2 border-success">
       <div class="card-header bg-success">On hold</div>
-      <div v-if="tasks.length>0">
-        <div class="card-text" style="width: 240px" v-for="(t, index) in tasks" :key="index">
+      <div v-if="tasks.length>0" class="card-text" style="min-height: 50px">
+        <div class="card-text" v-for="(t, index) in tasks" :key="index">
           <div v-if="t.taskState == 'ON_HOLD'">
             <TaskItem :task="t"/>
           </div>
@@ -45,8 +45,8 @@
 
     <div class="card mb-3 border-2 border-success">
       <div class="card-header bg-success">Completed</div>
-      <div v-if="tasks.length>0">
-        <div class="card-text" style="width: 240px;min-height: 15px" v-for="(t, index) in tasks" :key="index">
+      <div v-if="tasks.length>0" class="card-text" style="min-height: 50px">
+        <div class="card-text" v-for="(t, index) in tasks" :key="index">
           <div v-if="t.taskState == 'COMPLETED'">
             <TaskItem :task="t"/>
           </div>
@@ -91,9 +91,24 @@ export default {
 </script>
 
 <style scoped>
+
 .task-group {
-  margin-top: 20px;
-  padding: 10px;
-  border: 1px solid #ccc;
+  display: flex;
+  align-items: flex-start;
+  gap: 1%;
+}
+
+.card {
+  border: 2px solid #28a745;
+}
+
+.card-header {
+  font-weight: bold;
+  color: white;
+}
+
+.card-text {
+  width: 240px;
+  min-height: 0px;
 }
 </style>

@@ -1,6 +1,8 @@
 <template>
-  <div id="app">
-    <router-view/>
+  <div id="app" style="display: flex
+">
+    <LeftPart/>
+    <TaskGroup/>
   </div>
 </template>
 
@@ -26,3 +28,11 @@ nav a.router-link-exact-active {
   color: #42b983;
 }
 </style>
+<script>
+import LeftPart from "@/components/LeftPart.vue";
+import TaskGroup from "@/components/TaskGroup.vue";
+
+export default {
+  components: {TaskGroup, LeftPart}
+}
+</script>

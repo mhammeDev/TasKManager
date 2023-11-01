@@ -35,10 +35,11 @@ export default new Vuex.Store({
         commit('updateTask', updatedTasks);
       }else console.log(response.data);
     },
-    async addTask({commit},taskData){
+    async addTask({commit, state},taskData){
       let response= await TaskServices.addTask(taskData);
       if(response.status === 200){
-        commit('updateTask',response.data);
+        const addedTask = [...state.tasks, taskData];
+        commit('updateTask',addedTask);
       }else console.log(response.data);
     },
     async updateTask({commit},id,taskData){
