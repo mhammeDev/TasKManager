@@ -1,16 +1,16 @@
 <template>
-  <div class="task" style="margin: 3%;">
-    <div :class="concat('card mb-3 border-2 bg-',getPriorityClass(task.taskPriority))">
-      <div :class="concat('card-header bg-light border-',getPriorityClass(task.taskPriority))" style="font-weight: bold;color: black">{{ task.title }}</div>
-      <div class="card-body text-" :class="getPriorityClass(task.taskPriority)">
-        <h5 class="card-title" style="color: white">Task Description</h5>
-        <div class="card-text" style="color: white">
+  <div class="task" style="margin: 4%">
+    <div class="card mb-3  border-2" :style="getPriorityClass(task.taskPriority)">
+      <div class="card-header" :style="getPriorityClass(task.taskPriority)" >{{ task.title }}</div>
+      <div class="card-body" style="background-color: white;">
+        <h5 class="card-title">Task Description</h5>
+        <div class="card-text">
         <p>{{ task.description }}</p>
         <p>Due Date: {{ task.date }}</p>
         <p>Task State: {{ task.taskState }}</p>
         <p>Task Priority: {{ task.taskPriority }}</p>
-                  <button class="btn btn-light btn-outline-danger" @click="deleteTasks(task.id)">Delete Task</button>
-                  <button class="btn btn-light btn-outline-warning" @onclick="deleteTask(task.id)" style="margin: 1%">Update task</button>
+                  <button class="btn btn-danger" @click="deleteTasks(task.id)" style="margin: 1%">Delete Task</button>
+          <button class="btn btn-warning" @click="editTask(task.id)">Edit task</button>
         </div>
       </div>
     </div>
@@ -30,19 +30,20 @@ export default {
   },
   methods: {
     ...mapActions(['deleteTasks']),
+    editTask(taskID) {
+      this.$root.$emit('edit-task', taskID);
+    },
     getPriorityClass(priority) {
       switch (priority) {
         case "Weak":
-          return 'success';
+          return 'background-color: #F4D03F;';
         case 'Average':
-          return 'warning';
+          return 'background-color: orange';
         case 'High':
-          return 'danger';
+          return 'background-color: #F08080 ;';
         default:
           return '';
       }
-    },concat(text1,text2){
-      return text1.concat(text2);
     }
   }
 
@@ -51,5 +52,13 @@ export default {
 </script>
 
 <style>
+.card-header{
+  font-weight: bold;
+  color: white;
+}
+
+.card-body{
+
+}
 
 </style>

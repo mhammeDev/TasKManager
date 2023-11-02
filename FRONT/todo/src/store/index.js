@@ -35,18 +35,43 @@ export default new Vuex.Store({
         commit('updateTask', updatedTasks);
       }else console.log(response.data);
     },
-    async addTask({commit, state},taskData){
-      let response= await TaskServices.addTask(taskData);
-      if(response.status === 200){
-        const addedTask = [...state.tasks, taskData];
-        commit('updateTask',addedTask);
-      }else console.log(response.data);
+    async addTask({ commit }, taskData) {
+      try {
+        const response = await TaskServices.addTask(taskData);
+        if (response.status === 200) {
+          // Make an API call to get the updated tasks data
+          const updatedTasksResponse = await TaskServices.getTasks();
+          if (updatedTasksResponse.status === 200) {
+            commit('updateTask', updatedTasksResponse.data);
+          } else {
+            console.log(updatedTasksResponse.data);
+          }
+        } else {
+          console.log(response.data);
+        }
+      } catch (error) {
+        console.error('Error adding task:', error);
+        throw error;
+      }
     },
-    async updateTask({commit},id,taskData){
-      let response = await TaskServices.updateTask(id,taskData);
-      if(response.status === 200){
-        commit('updateTask',response.data);
-      }else console.log(response.data);
+    async updateTasks({commit},{ id, taskData} ){
+      try {
+        const response = await TaskServices.updateTask(id,taskData);
+        if (response.status === 200) {
+          // Make an API call to get the updated tasks data
+          const updatedTasksResponse = await TaskServices.getTasks();
+          if (updatedTasksResponse.status === 200) {
+            commit('updateTask', updatedTasksResponse.data);
+          } else {
+            console.log(updatedTasksResponse.data);
+          }
+        } else {
+          console.log(response.data);
+        }
+      } catch (error) {
+        console.error('Error updating task:', error);
+        throw error;
+      }
     }
   },
 })

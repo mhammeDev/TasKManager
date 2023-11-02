@@ -35,8 +35,10 @@ async function addTask(taskData) {
 }
 
 async function updateTask(id, taskData) {
+    const queryString = new URLSearchParams(taskData);
+    const requestUrl = `${TASK_API}/${id}?${queryString}`;
     try {
-        const response = await axios.put(`${TASK_API}/${id}`, taskData);
+        const response = await axios.put(requestUrl);
         return response;
     } catch (error) {
         console.error('Error updating task:', error);

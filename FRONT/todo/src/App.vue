@@ -29,8 +29,8 @@ nav a.router-link-exact-active {
 }
 </style>
 <script>
-import LeftPart from "@/components/LeftPart.vue";
-import TaskGroup from "@/components/TaskGroup.vue";
+import LeftPart from "@/views/LeftPart.vue";
+import TaskGroup from "@/views/TaskGroup.vue";
 
 export default {
   components: {TaskGroup, LeftPart}
