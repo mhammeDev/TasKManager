@@ -82,6 +82,8 @@ spring.datasource.username=your_username
 spring.datasource.password=your_password
 ```
 
+## Install all of dependecies with maven
+
 ```bash
 cd BACK/to-do/
 ```
@@ -96,27 +98,6 @@ mvn clean install
 mvn spring-boot:run
 ```
 
-## Security Considerations
+After that you can see the application with th the link [TaskManager](http://localhost:8081/)
+**This is the first prototype of the application the style and the implication will be upgrade later**
 
-If your application deals with user accounts and login features, ensure you follow security best practices, especially when handling sensitive information.
-
-## Contributing
-
-If you want to contribute to this project, please follow the guidelines in [CONTRIBUTING.md](CONTRIBUTING.md).
-
-## License
-
-This project is licensed under the [Your License] - see the [LICENSE.md](LICENSE.md) file for details.
-
-## Testing
-
-To run tests, use the following command:
-
-```bash
-mvn test
-```
-
-Remember to update this README as your project evolves, and feel free to adjust the content based on your specific project details.
-```
-
-Note: Please replace `[Your License]` with the appropriate license information for your project. If you don't have a license yet, consider choosing one from [ChooseALicense.com](https://choosealicense.com/).
