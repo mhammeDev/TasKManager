@@ -1,15 +1,15 @@
-package com.example.todo.Todo;
+package com.example.todo.Todo.Controllers;
 
 import java.time.LocalDate;
 import java.util.*;
 
 import com.example.todo.Todo.Models.Task;
-import com.example.todo.Todo.Models.TaskPriority;
-import com.example.todo.Todo.Models.TaskState;
+import com.example.todo.Todo.Services.TodoService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
+@CrossOrigin(origins = "http://localhost:8081")
 @RequestMapping(path = "api/v1/todo")
 public class TodoControllers {
     private TodoService todoService;
@@ -32,13 +32,13 @@ public class TodoControllers {
     }
 
     @DeleteMapping(path = "{taskId}")
-    public void removeTask(@PathVariable("taskId") int taskId){
+    public void removeTask(@PathVariable("taskId") Long taskId){
         todoService.removeTask(taskId);
     }
 
     @PutMapping(path = "{taskId}")
     public void updateTask(
-            @PathVariable("taskId") int taskId,
+            @PathVariable("taskId") Long taskId,
             @RequestParam(required = false) String title,
             @RequestParam(required = false) String description,
             @RequestParam(required = false) LocalDate date,

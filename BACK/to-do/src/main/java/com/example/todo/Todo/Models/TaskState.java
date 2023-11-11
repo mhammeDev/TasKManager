@@ -4,12 +4,12 @@ public enum TaskState {
     TO_DO("To do"),
     IN_PROGRESS("In progress"),
     COMPLETED("Completed"),
-    POSTPONED("Post poned"),
-    CANCELED("Canceled"),
-    ON_HOLD("On hold"),
-    DRAFT("Draft"),
-    UNDER_REVIEW("Under review"),
-    UNASSIGNED("Unassigned");
+    //POSTPONED("Post poned"),
+    //CANCELED("Canceled"),
+    ON_HOLD("On hold");
+    //DRAFT("Draft"),
+    //UNDER_REVIEW("Under review"),
+   // UNASSIGNED("Unassigned");
 
     private final String label;
 

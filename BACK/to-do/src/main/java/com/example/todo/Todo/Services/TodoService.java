@@ -1,15 +1,14 @@
-package com.example.todo.Todo;
+package com.example.todo.Todo.Services;
 
+import com.example.todo.Todo.Configuration.TaskRepository;
 import com.example.todo.Todo.Models.Task;
 import com.example.todo.Todo.Models.TaskPriority;
 import com.example.todo.Todo.Models.TaskState;
 import jakarta.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDate;
-import java.util.Date;
 import java.util.List;
 import java.util.Objects;
 import java.util.Optional;
@@ -41,7 +40,7 @@ public class TodoService {
 
     }**/
 
-    public void removeTask(int id){
+    public void removeTask(Long id){
         if(!taskRepository.existsById(id)){
             throw new IllegalStateException("Task with id: "+id+" doesn't exist and can't be remove");
         }
@@ -53,7 +52,7 @@ public class TodoService {
     } **/
 
     @Transactional //Spring will manage the transaction (the update in this case)
-    public void updateTask(int id,String title, String description, LocalDate date, String taskState, String taskPriority){
+    public void updateTask(Long id,String title, String description, LocalDate date, String taskState, String taskPriority){
         Task task = taskRepository.findById(id).orElseThrow(() -> new IllegalStateException("Task with id: "+id+" doesn't exist and can't be remove"));
 
         if(title != null

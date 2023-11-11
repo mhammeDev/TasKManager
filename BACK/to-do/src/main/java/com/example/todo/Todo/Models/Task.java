@@ -8,12 +8,16 @@
     @Table
     public class Task{
         @Id
-        @GeneratedValue(strategy = GenerationType.IDENTITY)
-        @Column(
-                name = "id",
-                updatable = false
+        @SequenceGenerator(
+                name = "TaskId_generator",
+                sequenceName = "TaskId_generator",
+                allocationSize = 1
         )
-        protected int id;
+        @GeneratedValue(
+                strategy = GenerationType.SEQUENCE,
+                generator = "TaskId_generator"
+        )
+        protected Long id;
 
         @Column(
                 name="title",
@@ -60,6 +64,10 @@
 
         public Task() {
 
+        }
+
+        public Long getId() {
+            return id;
         }
 
         public String getTitle(){

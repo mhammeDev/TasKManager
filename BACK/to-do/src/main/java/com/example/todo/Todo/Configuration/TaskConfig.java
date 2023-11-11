@@ -1,4 +1,4 @@
-package com.example.todo.Todo;
+package com.example.todo.Todo.Configuration;
 
 import com.example.todo.Todo.Models.Task;
 import com.example.todo.Todo.Models.TaskPriority;

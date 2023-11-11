@@ -1,4 +1,4 @@
-package com.example.todo.Todo;
+package com.example.todo.Todo.Configuration;
 
 import com.example.todo.Todo.Models.Task;
 import org.springframework.data.jpa.repository.JpaRepository;
@@ -9,7 +9,7 @@ import java.util.Optional;
 
 //this interface allow us to access and implement some methode from JPA, example it will help us for the crud
 @Repository
-interface TaskRepository extends JpaRepository<Task,Integer> {
+public interface TaskRepository extends JpaRepository<Task,Long> {
 
     @Query("SELECT t from Task t where t.title = ?1") //Verify if tittle already exist;
     Optional<Task> findTaskByTitle(String title);
